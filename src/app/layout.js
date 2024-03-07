@@ -1,5 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/component/Header";
+import Sidebar from "@/component/Sidebar";
+import { Grid } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +14,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <Header/>
+      <Grid container>
+        {/* <Grid item xs={2}>
+          <Sidebar/>
+        </Grid> */}
+        {/* <Grid item xs={10}>
+        </Grid> */}
+        {children}
+      </Grid>
+      </body>
     </html>
   );
 }

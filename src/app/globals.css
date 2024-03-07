@@ -79,13 +79,7 @@
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -93,7 +87,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 a {
   color: inherit;
@@ -105,3 +99,145 @@ a {
     color-scheme: dark;
   }
 }
+
+/* 여기가 전체 공간 기본 css 적용 부분 */
+html,
+body {
+  overflow-x: hidden;
+  width: 1920px;
+  /* height: auto; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+/* 관리자 로그인 화면 css */
+.manager{
+  /* border: 1px solid black; */
+  width: 1800px;
+  height: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center; /* 수평 가운데 정렬 */
+}
+
+.manager_2{
+  border: 1px solid red;
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  /* background: rgba(255, 255, 255, 0.85); */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* backdrop-filter: blur(20px); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #333;
+  border-radius: 10px;
+  margin-top: 150px;
+}
+
+/* 로그인 후 보여지는 메인 페이지 */
+/* 전체 css */
+.Maincontent {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid red;
+}
+
+/* 사이드바 css*/
+.sidebar {
+  background-color: #444;
+  color: white;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid green;
+}
+
+/* 사이드바 링크 css*/
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar li a{
+  font-weight: bold; /* 글씨 두껍게 변경 */
+}
+
+/* 마우스 호버(hover) 상태일 때의 스타일 */
+.sidebar .it:hover {
+  background-color: #f8f9fa; /* 마우스 호버시 배경색 변경 */
+  color: #000000; /* 글꼴 색상을 검정색으로 변경 */
+}
+
+/* 대시보드 콘텐트 css */
+.dash_content {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+}
+
+.b1{
+  width: 100%;
+}
+
+.b2{
+  display: flex;
+}
+
+
+.a1, .a2{
+  border: 1px solid red;
+  padding: 20px;
+  width: 100%;
+  height: 200px;
+}
+
+.a3, .a4 {
+  display: block;
+  border: 1px solid red;
+  padding: 20px;
+  width: 100%;
+  height: 500px;
+}
+
+/* 멤버 콘텐트 css */
+.Member_content {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid red;
+}
+
+
+/* 1:1문의 콘텐트 css */
+.Inquiry_content {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid red;
+}
+
+/* 회원 목록 및 관리 css */
+.Member_content {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid red;
+}
+
+/* .s_li{
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 30px;
+} */

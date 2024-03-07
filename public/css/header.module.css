@@ -1,0 +1,20 @@
+/* 헤더 css 부분입니다. */
+.header{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+    background-color: rgba(0, 43, 91, 0.9);
+    z-index: 2;
+}
+.header .header-logo .navbar-brand{
+    display: block;
+    width: 196px;
+    height: 40px;
+    color: transparent;
+    background-image: url('../imgs/logo.png'); /* 상대 경로 사용 */
+    background-size: cover;
+    border: 1px solid red;
+}
+

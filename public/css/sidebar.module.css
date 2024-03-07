@@ -1,0 +1,11 @@
+/* sidebar.module.css */
+.sidebar a{
+    border: 1px solid black;
+}
+
+.s_li{
+    display: block;
+    width: 200px;
+    height: 700px;
+    margin: 50px;
+}
