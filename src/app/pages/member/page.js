@@ -53,6 +53,7 @@ export default function Main(){
             console.log(json.data);
             // java로 따지면 setter라 생각하는게 편함 (여기다가 저장)
             setMemberList(json.data.searchMemList); // backend에서 key값으로 이름 정한거 반드시 지킬것.
+            // 재커밋
             
         });
     }
