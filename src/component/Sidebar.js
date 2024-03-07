@@ -6,7 +6,7 @@ import styles from '../../public/css/sidebar.module.css'; // 상대 경로 사�
 export default function Sidebar(){
 
     // 사이드바 메뉴 항목
-    const sideItem = ['대시보드', '회원목록 및 관리', '1:1문의', '게시판 관리', '가이드 관리', '로그아웃'];
+    const sideItem = ['대시보드', '회원목록 및 관리', '1:1문의', '게시판 관리', '가이드 관리'];
 
     const router = useRouter();
 
@@ -24,9 +24,6 @@ export default function Sidebar(){
                 break;
             case 3:
                 router.push("/pages/management");
-                break;
-            case 5:
-                router.push("/");
                 break;
             // 나머지 메뉴 항목에 대한 처리 추가
             default:
