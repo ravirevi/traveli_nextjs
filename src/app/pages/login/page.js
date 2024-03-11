@@ -63,6 +63,8 @@ export default function Admin(){
         }
     };
 
+
+
     // 페이지가 실행 될 때, 가장 처음에 한번만 실행하며, 가장 빠르게 실행되는 함수.
     useEffect(() => {
         checkLogin();

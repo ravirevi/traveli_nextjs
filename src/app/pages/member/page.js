@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from '@/component/Sidebar';
 import axios from "axios";
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Checkbox, FormControlLabel, Grid, TextField } from "@mui/material";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -24,6 +24,7 @@ export default function Main(){
 
     const [type, setType] = useState("");
     const [value, setValue] = useState("");
+    const [checked, setChecked] = useState(true);
 
     // 경로
     const api_uri = '/admin/member';
@@ -31,12 +32,16 @@ export default function Main(){
     const [ar, setMemberList] = useState([]); /* 반복문 굴릴 때 ar로 굴리기 위해 이름 이렇게 함. */
     //const [searchResult, setSearchResult] = useState([]);
 
+    const checkedChange = (event) => {
+        setChecked(event.target.checked);
+
+       // SearchMember();
+    };
+
     // 회원 목록
     function memListData(){
-        axios.get(
-            api_uri
-        ).then(json => {
-            console.log(json);
+        axios.get(api_uri).then(json => {
+            console.log("memListData함수호출");
             setMemberList(json.data.memberList); // 여기서 추가되면 위에 저장됨.
         });
     }
@@ -46,15 +51,16 @@ export default function Main(){
         /* const type = document.getElementById('type').value; // type
         const value = document.getElementById('value').value; // value
  */
+        console.log(checked);
+        console.log("SearchMember함수호출");
+
         axios.get(
-            "/admin/searchMember?type="+type+"&value="+value,
+            `/admin/searchMember?type=${type}&value=${value}&checked=${checked}`
         ).then(json =>{
-            console.log(json);
-            console.log(json.data);
+            //console.log(json.data);
             // java로 따지면 setter라 생각하는게 편함 (여기다가 저장)
-            setMemberList(json.data.searchMemList); // backend에서 key값으로 이름 정한거 반드시 지킬것.
-            // 재커밋
-            
+            setMemberList(json.data.searchMemList); 
+            // backend에서 key값으로 이름 정한거 반드시 지킬것.            
         });
     }
 
@@ -62,10 +68,22 @@ export default function Main(){
         const confirmed = window.confirm("정말 삭제하시겠습니까?");
         if (confirmed) {
             axios.get(
-                "/admin/delMember?mem_idx="+idx,
+                `/admin/delMember?mem_idx=${idx}`
             ).then(json => {
                 console.log(json);
-                memListData(); // 여기서 추가되면 위에 저장됨.
+                memListData(); 
+            });
+        }
+    }
+
+    function restoreMember(idx){
+        const confirmed = window.confirm("삭제된 회원을 복구하시겠습니까?");
+        if (confirmed) {
+            axios.get(
+               `/admin/restoreMember?mem_idx=${idx}`
+            ).then(json => {
+                console.log(json);
+                memListData(); 
             });
         }
     }
@@ -79,19 +97,26 @@ export default function Main(){
         memListData();
     }, []);
 
+    /* useEffect(() => {
+        if (checked) { // checked 상태가 true 일 때만 실행
+            SearchMember();
+        }
+    }, [checked]);  // checked 상태가 변경되었을 때만 검색 실행
+    */
+
     return(
     <div className="Member_content">
       <Sidebar />
         <Box sx={{ margin: '30px'}}>
         <FormControl fullWidth>
-            <Grid container spacing={2} alignItems="center">
+            <Grid container spacing={2} sx={{mb: '20px'}} alignItems="center">
                 <Grid item xs={3} sm={2}>
-                    <InputLabel id="demo-simple-select-label">type</InputLabel>
+                    <InputLabel id="demo-simple-select-autowidth-label">검색유형</InputLabel>
                     <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth-label"
                     value={type}
-                    label="type"
+                    label="검색유형"
                     onChange={handleChange}
                     sx={{ width: '100%' }}
                     >
@@ -100,7 +125,7 @@ export default function Main(){
                     <MenuItem value={'2'}>닉네임</MenuItem>
                     </Select>
                 </Grid>
-                <Grid item xs={4} sm={8}>
+                <Grid item xs={4} sm={6}>
                     <TextField label="검색어를 입력하세요." 
                     type="text" 
                     name="value"
@@ -112,7 +137,12 @@ export default function Main(){
                 <Grid item xs={1} sm={2}>
                     <Button type="submit" variant="contained" sx={{ mt: 0, mb: 0 }} onClick={SearchMember}>검색</Button>
                 </Grid>
-                <Grid item xs={4}></Grid>
+                <Grid item xs={4} sm={2}>
+                   <FormControlLabel control={
+                        <Checkbox checked={checked} 
+                        onChange={() => setChecked(!checked)}/>} 
+                   label="삭제된 회원 포함" />
+                </Grid>
             </Grid>
         </FormControl>
         
@@ -120,12 +150,12 @@ export default function Main(){
             <Table sx={{ minWidth: 1200 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>회원번호</TableCell>
+                        <TableCell align="center">회원번호</TableCell>
                         <TableCell align="right">이름</TableCell>
                         <TableCell align="right">이메일</TableCell>
                         <TableCell align="right">닉네임</TableCell>
                         <TableCell align="right">가입일</TableCell>
-                        <TableCell>삭제여부</TableCell>
+                        <TableCell align="right">삭제여부</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -134,7 +164,7 @@ export default function Main(){
                             ar.map(member => (
                                 <TableRow key={member.mem_idx}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                    <TableCell component="th" scope="row">
+                                    <TableCell component="th" align="center">
                                         {member.mem_idx}
                                     </TableCell>
                                     <TableCell align="right">{member.mem_name}</TableCell>
@@ -142,7 +172,7 @@ export default function Main(){
                                     <TableCell align="right">{member.mem_nickname}</TableCell>
                                     <TableCell align="right">{member.mem_reg_date}</TableCell>
                                     <TableCell align="right">{member.mem_status==='0'? <Button variant="outlined" color="error" onClick={() => delMember(member.mem_idx)}>삭제</Button>
-                                                : <Button variant="outlined" color="primary" onClick={() => delMember(member.mem_idx)}>복구</Button>}
+                                                : <Button variant="outlined" color="primary" onClick={() => restoreMember(member.mem_idx)}>복구</Button>}
                                     </TableCell>                                    
                                 </TableRow>
                             ))
