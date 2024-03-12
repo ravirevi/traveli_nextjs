@@ -34,7 +34,7 @@ export default function Admin(){
                     console.log(json.data.vo);
                     console.log(json.data.vo.ad_id);
                     sessionStorage.setItem("id", json.data.vo.ad_id);
-                    router.push("/pages/dashboard"); // 페이지를 reload하는게 아니라서, 아래 페이지만 바뀜.
+                    router.push("/pages/dashboard2"); // 페이지를 reload하는게 아니라서, 아래 페이지만 바뀜.
                     router.refresh(); // 강제로 새로 고침 한번 시킴.
                     console.log(sessionStorage.getItem("id"));
                 } else {

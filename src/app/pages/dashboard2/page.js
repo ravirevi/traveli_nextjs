@@ -27,6 +27,7 @@ import Title from '@/component/Title';
 import MemberCount from './MemberCount';
 import BbsCount from './BbsCount';
 import Footer from '@/component/Footer';
+import PieChart from './PieChart';
 
 
 const drawerWidth = 240;
@@ -110,7 +111,7 @@ export default function Dashboard() {
             <Grid container spacing={3}>
 
               {/* 총 회원 수  */}
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={12} md={3} lg={3}>
                 <Paper
                   sx={{
                     p: 2,
@@ -124,7 +125,7 @@ export default function Dashboard() {
               </Grid>
 
               {/* 총 게시물 수  */}
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={12} md={3} lg={3}>
                 <Paper
                   sx={{
                     p: 2,
@@ -134,6 +135,19 @@ export default function Dashboard() {
                   }}
                 >
                   <BbsCount/>
+                </Paper>
+              </Grid>
+
+              <Grid item xs={12} md={6} lg={6}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <PieChart />
                 </Paper>
               </Grid>
 

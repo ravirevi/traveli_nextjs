@@ -11,15 +11,15 @@ function createData(time, amount) {
 }
 
 const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00'),
+  createData('03-07', 12),
+  createData('03-08', 44),
+  createData('03-09', 123),
+  createData('03-10', 345),
+  createData('03-11', 599),
+  createData('03-12', 751),
+  createData('03-13', 900),
+  createData('03-14', 888),
+  createData('today'),
 ];
 
 export default function Chart() {
@@ -27,7 +27,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>일일 방문 누적 수</Title>
       <div style={{ width: '100%', flexGrow: 1, overflow: 'hidden' }}>
         <LineChart
           dataset={data}
@@ -47,13 +47,13 @@ export default function Chart() {
           ]}
           yAxis={[
             {
-              label: 'Sales ($)',
+              label: '방문 수',
               labelStyle: {
                 ...theme.typography.body1,
                 fill: theme.palette.text.primary,
               },
               tickLabelStyle: theme.typography.body2,
-              max: 2500,
+              max: 1000,
               tickNumber: 3,
             },
           ]}

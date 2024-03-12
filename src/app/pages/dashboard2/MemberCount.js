@@ -40,7 +40,7 @@ export default function MemberCount() {
          on 15 March, 2024
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        <Link color="primary" href="/pages/member" onClick={preventDefault}>
           회원목록 및 관리
         </Link>
       </div>

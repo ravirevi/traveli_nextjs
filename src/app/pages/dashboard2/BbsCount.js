@@ -40,7 +40,7 @@ export default function BbsCount() {
         on 15 March, 2024
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        <Link color="primary" href="/pages/bbs" onClick={preventDefault}>
           게시물 관리 바로가기
         </Link>
       </div>

@@ -56,7 +56,7 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>최신 게시글</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
