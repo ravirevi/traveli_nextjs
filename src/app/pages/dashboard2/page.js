@@ -26,40 +26,11 @@ import * as React from "react";
 import Title from '@/component/Title';
 import MemberCount from './MemberCount';
 import BbsCount from './BbsCount';
+import Footer from '@/component/Footer';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        TRAVELI
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const drawerWidth = 240;
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  backgroundColor: 'rgba(0, 43, 91, 0)',
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -100,40 +71,7 @@ export default function Dashboard() {
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
-          <Toolbar
-            sx={{
-              pr: '24px', // keep right padding when drawer closed              
-            }}
-          >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: '36px',
-                ...(open && { display: 'none' }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              ~
-            </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -154,6 +92,7 @@ export default function Dashboard() {
             {secondaryListItems}
           </List>
         </Drawer>
+
         <Box
           component="main"
           sx={{
@@ -211,6 +150,7 @@ export default function Dashboard() {
                   <Chart />
                 </Paper>
               </Grid>
+
               {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
@@ -224,14 +164,17 @@ export default function Dashboard() {
                   <Deposits />
                 </Paper>
               </Grid>
+
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
                 </Paper>
               </Grid>
+
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+
+            <Footer sx={{ pt: 4 }} />
           </Container>
         </Box>
       </Box>

@@ -13,34 +13,35 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import FollowTheSignsIcon from '@mui/icons-material/FollowTheSigns';
+import Link from 'next/link';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/dashboard2"}>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="대시보드" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/member"}>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="회원 관리" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/inquiry"}>
       <ListItemIcon>
         <LiveHelpIcon />
       </ListItemIcon>
       <ListItemText primary="1:1 문의" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/bbsmanage"}>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="게시글 관리" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/guide2"}>
       <ListItemIcon>
         <FollowTheSignsIcon />
       </ListItemIcon>
@@ -54,19 +55,19 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       about
     </ListSubheader>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/report"}>
       <ListItemIcon>
         <ContactEmergencyIcon />
       </ListItemIcon>
-      <ListItemText primary="신고 관리" />
+      <ListItemText primary="신고 관리"/>
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/report"}>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="리포트" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton component={Link} to={"/pages/settings"}>
       <ListItemIcon>
         <SettingsIcon />
       </ListItemIcon>
