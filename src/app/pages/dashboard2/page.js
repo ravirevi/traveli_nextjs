@@ -18,12 +18,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems, secondaryListItems } from '@/component/ListItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import * as React from "react";
-import Title from './Title';
+import Title from '@/component/Title';
 import MemberCount from './MemberCount';
 import BbsCount from './BbsCount';
 
