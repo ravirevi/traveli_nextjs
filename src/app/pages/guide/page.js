@@ -1,10 +1,12 @@
 'use client'
 import React from "react";
+import Sidebar from "@/component/Sidebar";
 
 export default function Guide(){
     
     return(
         <div className="Guide_content">
+            <Sidebar/>
             <div>
     <table>
         <thead>
@@ -17,7 +19,6 @@ export default function Guide(){
             </tr>
         </thead>
         <tbody>
-            
             <tr>
                 <td>1</td>
                 <td>한라봉</td>
@@ -25,62 +26,14 @@ export default function Guide(){
                 <td><input type="button" value="프로필"/></td>
                 <td><input type="button" value="승인"/><input type="button" value="반려"/></td>
             </tr>
-
-           {/* <c:if test="${ar eq null}">
-                <tr>
-                    <td colspan="6">검색된 결과가 없습니다.</td>
-                </tr>
-            </c:if>  */}
         </tbody>    
-        
-        {/* <tfoot>
-            <tr>
-                <td colspan="6">
-                    <ol class="paging">
-                        
-                        <li class="disable">&lt;</li>
-                        <li class="now">1</li>
-                        <li class="disable">&gt;</li>
-
-                        <!-- <c:if test="${requestScope.page.startPage < requestScope.page.blockPage }">
-                            <li class="disable">&lt;</li>
-                        </c:if> -->
-                        <!-- <c:if test="${requestScope.page.startPage >= requestScope.page.blockPage }">                          
-                            <li>
-                                <a href="admin/member?cPage=${page.startPage-page.blockPage }">&lt;</a>
-                            </li>
-                        </c:if> 
-                        
-                        <c:forEach begin="${page.startPage }" end="${page.endPage }" varStatus="vs">
-                            <c:if test="${vs.index eq page.nowPage }"> 
-                                <li class="now">1</li>
-                            </c:if>
-                            <c:if test="${vs.index ne page.nowPage }">
-                                <li>
-                                    <a href="admin/member?cPage=${vs.index }">${vs.index }</a>
-                                </li>
-                            </c:if>
-                        </c:forEach> 
-                        
-                        <c:if test="${page.endPage < page.totalPage }">
-                            <li><a href="admin/member?cPage=${page.startPage+page.blockPage }">&gt;</a></li>
-                        </c:if>
-                        <c:if test="${page.endPage >= page.totalPage }">                            
-                            <li class="disable">&gt;</li>
-                        </c:if>-->
-                            
-                    </ol>
-
-                </td>
-            </tr>
-        </tfoot> */}
     </table>
 </div>
 <hr/>
 <h3>[가이드 리스트]</h3>
 <br/>
 <div>
-    <form action="" method="post">
+    <form method="post">
         <select name="type" id="type">
             <option value="0">가이드이름</option>
             <option value="1">지역</option>
@@ -162,11 +115,11 @@ export default function Guide(){
                 <td>1</td>
             </tr>
 
-            <c:if test="${ar eq null}">
+
                 <tr>
                     <td colspan="6">검색된 결과가 없습니다.</td>
                 </tr>
-            </c:if> 
+
         </tbody>    
         
         {/* <tfoot>

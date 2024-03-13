@@ -21,7 +21,7 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <div className="main_1">
             <ul>
                 {/* 메인 페이지 로그인 연결 항목 */}
                 <li><a href="#">사이트 연결</a></li>
