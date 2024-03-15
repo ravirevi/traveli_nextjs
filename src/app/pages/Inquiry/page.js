@@ -1,8 +1,4 @@
 'use client'
-/* import React, { useEffect, useState } from "react"; */
-import Sidebar from "@/component/Sidebar";
-/* import axios from "axios"; */
-/* 추가 부분 */
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -29,10 +25,14 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { mainListItems, secondaryListItems } from '@/component/ListItems';
 
-/* 모달 */
+
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
+/* 모달 */
+/* import React, { useEffect, useState } from "react"; */
+/* import Sidebar from "@/component/Sidebar"; */
+/* import axios from "axios"; */
+/* 추가 부분 */
 
 const drawerWidth = 240;
 
