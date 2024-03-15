@@ -28,6 +28,7 @@ import { mainListItems, secondaryListItems } from '@/component/ListItems';
 
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Title from '@/component/Title';
 /* 모달 */
 /* import React, { useEffect, useState } from "react"; */
 /* import Sidebar from "@/component/Sidebar"; */
@@ -119,6 +120,7 @@ export default function InQuery(){
         ).then(json => {
             console.log(json);
             setInquList(json.data.InquList);
+            
         });
     }
 
@@ -180,9 +182,6 @@ const handleChange = (event) => {
     });
   };
 
-
-
-
     // 최초 실행시, 가장 먼저 실행
     useEffect(() => {
         InquListData();
@@ -240,10 +239,11 @@ const handleChange = (event) => {
                     sx={{
                         p: 2,
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: 'column',
                         height: 700,
                     }}
                     >
+                    <Title>1:1 문의 검색</Title>
                     <Box sx={{ margin: '30px'}}>
                         <FormControl fullWidth>
                             <Grid container spacing={2} sx={{mb: '20px'}} alignItems="center">
@@ -271,10 +271,10 @@ const handleChange = (event) => {
                                     sx={{ width: '100%' }}
                                     />
                                 </Grid>
-                                <Grid item xs={1} sm={2}>
+                                <Grid item xs={1} sm={1}>
                                     <Button type="submit" variant="contained" sx={{ mt: 0, mb: 0 }} onClick={searchInquiry}>검색</Button>
                                 </Grid>
-                                <Grid item xs={4} sm={2}>
+                                <Grid item xs={4} sm={3}>
                                 <FormControlLabel control={
                                         <Checkbox checked={checked} 
                                         onChange={() => setChecked(!checked)}/>} 
@@ -427,7 +427,7 @@ const handleChange = (event) => {
                                 label="답변작성"
                                 multiline
                                 rows={8}
-                                defaultValue=""
+                                defaultValue={as.inquiries_status == 1 ? as.inquiries_res: ""}
                                 onChange={handleChange2}
                             />
                             {/* </Box> */}
@@ -443,7 +443,8 @@ const handleChange = (event) => {
                                 <Button variant="contained" size="medium" onClick={handleUpdate}>
                                     답변하기
                                 </Button>
-                                <Button variant="contained" color="error" size="medium">
+                                <Button variant="contained" color="error" size="medium"
+                                    onClick={()=>handleModalClose()}>
                                     취소
                                 </Button>
                             </Box>

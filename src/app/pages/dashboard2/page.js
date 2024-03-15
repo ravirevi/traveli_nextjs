@@ -137,16 +137,18 @@ export default function Dashboard() {
                   <BbsCount/>
                 </Paper>
               </Grid>
-
+              {/* PieChart */}
               <Grid item xs={12} md={6} lg={6}>
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
-                    flexDirection: 'column',
+                    flexDirection: 'row',
                     height: 240,
                   }}
                 >
+                  <Title>게시물 <br/>
+                    현황</Title>
                   <PieChart />
                 </Paper>
               </Grid>

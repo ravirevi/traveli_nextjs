@@ -132,8 +132,8 @@ export default function Dashboard() {
                   sx={{
                     p: 2,
                     display: 'flex',
-                    flexDirection: 'row',
-                    height: 530,
+                    flexDirection: 'column',
+                    height: '710',
                   }}
                 >
                   <GuideCard />

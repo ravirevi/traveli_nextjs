@@ -24,6 +24,7 @@ import Footer from '@/component/Footer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { mainListItems, secondaryListItems } from '@/component/ListItems';
+import Title from '@/component/Title';
 
 
 const drawerWidth = 240;
@@ -168,19 +169,18 @@ export default function Member() {
         >
           {/* <Toolbar /> */}
           
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>            
             <Grid container spacing={3}>
-
-              {/* 총 회원 수  */}
               <Grid item xs={12} md={12} lg={12}>
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
-                    flexDirection: 'row',
+                    flexDirection: 'column',
                     height: 700,
                   }}
                 >
+                  <Title>회원 검색</Title>
                   <Box sx={{ margin: '30px'}}>
                     <FormControl fullWidth>
                         <Grid container spacing={2} sx={{mb: '20px'}} alignItems="center">
@@ -208,10 +208,10 @@ export default function Member() {
                                 sx={{ width: '100%' }}
                                 />
                             </Grid>
-                            <Grid item xs={1} sm={2}>
+                            <Grid item xs={1} sm={1}>
                                 <Button type="submit" variant="contained" sx={{ mt: 0, mb: 0 }} onClick={SearchMember}>검색</Button>
                             </Grid>
-                            <Grid item xs={4} sm={2}>
+                            <Grid item xs={4} sm={3}>
                               <FormControlLabel control={
                                     <Checkbox checked={checked} 
                                     onChange={() => setChecked(!checked)}/>} 
